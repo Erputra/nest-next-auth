@@ -79,3 +79,23 @@ Proyek ini dilisensikan di bawah lisensi MIT.
     ✅ Branch 'master' set up to track remote branch 'master' from 'origin'.
     → Sekarang branch master di lokal terhubung ke branch master di GitHub.
 
+##  Scaffolding tool
+-   Membuat struktur project dari awall.
+
+-   Command
+    Bisa menggunakan perintah `npx create-turbo@latest` atau `npm create turbo@latest`
+
+
+##  Set Up NestJS
+-   Navigasi ke folder `next-nest-auth`
+-   Install NestJS CLI secara global dengan perintah `npm i -g @nestjs/cli`
+-   Pembuatan project nest dengan nama `api` menggunakan perintah `nest new api`
+
+-   💡 Keunggulan
+    Instalasi global dapat membuat project dengan cepat dan mempermudah pengelolaan project. CLI menyediakan banyak perintah berguna seperti:
+    -   `nest generate module users`          # Membuat module users
+    -   `nest generate controller users`      # Membuat controller users
+    -   `nest generate service users`         # Membuat service users
+
+    Jika tidak ingin install secara global dapat menggunakan perintah `npx @nestjs/cli new api`, Tapi, Setiap kali ingin menggunakan CLI maka harus memanggilnya dengan npx.
+
