@@ -99,3 +99,33 @@ Proyek ini dilisensikan di bawah lisensi MIT.
 
     Jika tidak ingin install secara global dapat menggunakan perintah `npx @nestjs/cli new api`, Tapi, Setiap kali ingin menggunakan CLI maka harus memanggilnya dengan npx.
 
+##  Terjadi error waktu commit NestJS API
+⚠️  Masalah
+    ❌   Karena menggunakan Turborepo, Struktur project memiliki workspace sendiri. 
+          Ketika membuat project dengan perintah `nest new api` di `apps/api/`, NestJS otomatis membuat `.git` di dalamnya.
+    ❌   Ini membuat `apps/api/` menjadi repository terpisah (sub-repo) sehingga tudak bisa langsung di track oleh repository utama.
+
+-   Solusi
+    Kita perlu menghapus `.git` lokal dalam `apps/api/` dengan menjalankan perintah `Remove-Item -Recurse -Force next-nest-auth/apps/api/.git`
+    Setelah itu lakukan commit seperti biasa.
+
+##  Terjadi Error "Cannot use JSX unless the --jsx flag is provided"
+⚠️  Masalah
+     Terjadi Karena TypeScript tidak diatur untuk mendukung JSX.
+
+🔍  Solusi
+    Pastikan di `tsconfig.json` di `apps/web` mengaktifkan JSX :
+
+    ```TypeScript
+        {
+            "compilerOptions": {
+                "jsx": "preserve", // Bisa juga "react-jsx" atau "react-jsxdev"
+                "module": "NodeNext"
+            }
+        }
+    ```
+
+##  Testing Running Turborepo
+🚀  Testing
+    Gunakan perintah `npm run dev` pada `next-nest-auth` untuk menjalankan `script dev` dari `packages.json` di `web` dan `api` secara bersamaan.
+    
